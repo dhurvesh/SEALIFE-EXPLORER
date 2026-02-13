@@ -45,6 +45,8 @@ import ContactUs from "./Components/pages/contact-us/ContactUs.jsx";
 import AboutUs from "./Components/pages/aboutus/AboutUs.jsx";
 import Favourites from "./Components/pages/Favourites/Favourites.jsx";
 import Ngo from "./Components/pages/ngo/NgoPage.jsx";
+import LogIn from "./Components/pages/LogIn/LogIn.jsx";
+
 
 function App() {  
   return (
@@ -61,6 +63,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="/ngo" element={<Ngo />} />
+        <Route path="/LogIn" element={<LogIn />} />
       </Routes>
       </div>
     </Router>
