@@ -1,0 +1,40 @@
+.ngo-page {
+  background: #000;
+  padding: 90px 80px;
+  min-height: 100vh;
+}
+
+.ngo-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 40px;
+  display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
+  align-items: flex-start;
+}
+
+.ngo-logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+.ngo-content {
+  max-width: 800px;
+}
+
+.ngo-content p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.ngo-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #000;
+  text-decoration: underline;
+}

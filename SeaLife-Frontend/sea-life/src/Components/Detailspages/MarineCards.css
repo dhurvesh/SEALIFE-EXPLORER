@@ -1,0 +1,92 @@
+.marine-wrapper {
+  padding: 60px 80px;
+  background: #fff;
+}
+
+/* SECTION */
+.marine-section {
+  margin-bottom: 80px;
+}
+
+.marine-title {
+  font-size: 28px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+/* GRID */
+.marine-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.marine-card {
+  border-radius: 28px;
+  padding: 28px 24px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #a9c3e5;
+}
+
+/* TITLE */
+.marine-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #3a3a3a;
+}
+
+/* IMAGE */
+.marine-card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+}
+
+/* READ MORE */
+.marine-card span {
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+}
+
+/* COLOR VARIANTS */
+.marine-card.purple {
+  background: #7a7ee6;
+}
+
+.marine-card.blue {
+  background: #a9c3e5;
+}
+
+.marine-card.green {
+  background: #9dc7c2;
+}
+
+.marine-card.cyan {
+  background: #aee0f4;
+}
+
+/* HOVER */
+.marine-card:hover {
+  transform: translateY(-6px);
+  transition: 0.3s ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .marine-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .marine-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,68 @@
+.fish-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fish-card {
+  width: 90%;
+  height: 90%;
+  border-radius: 40px 0 0 40px;
+  padding: 40px 60px;
+  overflow-y: auto;
+  color: #fff;
+  position: relative;
+}
+
+/* Close */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Layout */
+.fish-content {
+  display: flex;
+  gap: 60px;
+}
+
+/* Image */
+.fish-image img {
+  width: 420px;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.45));
+}
+
+/* Text */
+.fish-text {
+  max-width: 650px;
+}
+
+.fish-text h1 {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.fish-text h3 {
+  margin-top: 22px;
+  font-size: 16px;
+}
+
+.fish-text p,
+.fish-text li {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.fish-text ul {
+  padding-left: 18px;
+}

@@ -1,0 +1,246 @@
+/* ===== PAGE BASE ===== */
+.details-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #001427, #000814);
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== SELECTED WHALE HERO (TOP FULL PAGE) ===== */
+.selected-whale-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px;
+  gap: 70px;
+}
+
+/* ----- LEFT IMAGE ----- */
+.selected-whale-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-whale-image img {
+  width: 100%;
+  max-width: 540px;
+  filter: drop-shadow(0 35px 55px rgba(0, 0, 0, 0.65));
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ----- RIGHT CONTENT ----- */
+.selected-whale-content {
+  flex: 1;
+}
+
+.selected-whale-content h1 {
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  color: #5cc6ff;
+}
+
+.selected-whale-content .meta {
+  font-size: 14px;
+  color: #9ad9ff;
+  margin-bottom: 25px;
+}
+
+.selected-whale-content p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #cdeaff;
+  max-width: 520px;
+}
+
+/* ===== FLOAT ANIMATION ===== */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ===== DETAILS SECTION (BELOW HERO) ===== */
+.details-content {
+  padding: 80px 30px 100px;
+  text-align: center;
+}
+
+/* ----- TITLES ----- */
+.details-title {
+  font-size: 42px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.details-subtitle {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 50px;
+  color: #b6dcff;
+}
+
+/* ----- GRID ----- */
+.details-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+/* ----- CARDS ----- */
+.details-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 28px;
+  border-radius: 18px;
+  transition: all 0.35s ease;
+  text-align: left;
+  backdrop-filter: blur(6px);
+}
+
+.details-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.details-card h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: #7dd3fc;
+}
+
+.details-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  opacity: 0.92;
+  color: #e0f4ff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .selected-whale-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 30px;
+  }
+
+  .selected-whale-content h1 {
+    font-size: 44px;
+  }
+
+  .selected-whale-content p {
+    margin: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .selected-whale-content h1 {
+    font-size: 36px;
+  }
+
+  .details-title {
+    font-size: 32px;
+  }
+}
+.selected-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.selected-image img {
+  width: 420px;
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.selected-details {
+  text-align: left;
+  max-width: 600px;
+}
+
+.selected-details h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.selected-details h4 {
+  margin-top: 18px;
+  color: #7fcfff;
+}
+
+.selected-details p {
+  line-height: 1.7;
+  opacity: 0.9;
+}
+.whale-hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  min-height: 100vh;
+}
+
+/* LEFT INFO */
+.whale-hero-info {
+  flex: 1;
+  color: #e6f6ff;
+}
+
+.whale-hero-info h1 {
+  font-size: 56px;
+  margin-bottom: 20px;
+  color: #6dd3ff;
+}
+
+.whale-hero-info p {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.info-section {
+  margin-top: 20px;
+}
+
+.info-section h3 {
+  text-transform: capitalize;
+  color: #8fdcff;
+  margin-bottom: 8px;
+}
+
+.info-section ul {
+  padding-left: 18px;
+}
+
+.info-section li {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* RIGHT IMAGE */
+.whale-hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.whale-hero-image img {
+  width: 100%;
+  filter: drop-shadow(0 40px 60px rgba(0,0,0,0.7));
+  animation: float 6s ease-in-out infinite;
+}

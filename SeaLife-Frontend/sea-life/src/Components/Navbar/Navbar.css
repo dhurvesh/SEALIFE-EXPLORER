@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.app {
+  background: #fff;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  border-bottom: 1px solid #eee;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+
+  background: rgba(0, 8, 20, 0.95);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 40px;
+  z-index: 1000;
+
+}
+
+/* ❤️ Favourite button */
+.navbar button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #333;
+}
+
+.navbar button::before {
+  content: "♥";
+  font-size: 14px;
+  color: #444;
+}
+
+/* LOGO */
+.logo {
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #111;
+}
+
+.logo span {
+  margin-left: 6px;
+  font-weight: 600;
+  color: black;
+}
+
+/* NAV */
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  position: relative;
+}
+
+/* 🔍 Search icon before Home */
+.navbar nav::before {
+  content: "🔍";
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* Links */
+.navbar nav a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #111;
+  position: relative;
+}
+
+/* Underline on hover */
+.navbar nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: #111;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover::after {
+  width: 100%;
+}
+
+/* 🚪 Logout icon (after About Us) */
+.navbar nav a:last-child::after {
+  display: none;
+}
+
+.navbar nav a:last-child {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar nav a:last-child::after {
+  content: "⎋";
+  font-size: 16px;
+}

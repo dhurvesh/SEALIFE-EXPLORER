@@ -1,0 +1,89 @@
+.apex-section {
+  padding: 80px 40px;
+  background: #ffffff;
+}
+
+.apex-title {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #0a2540;
+}
+
+/* GRID */
+.apex-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 520px;
+}
+
+/* CARD BASE */
+.apex-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  height: 750px;
+}
+
+/* DARK OVERLAY */
+.apex-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 35px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.85)
+  );
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* TEXT */
+.apex-overlay h3 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.apex-overlay p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* META INFO */
+.apex-meta p {
+  font-size: 13px;
+  margin-top: 8px;
+  opacity: 0.85;
+}
+
+/* HOVER EFFECT */
+.apex-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.apex-card:hover::after {
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .apex-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .apex-card {
+    height: 420px;
+  }
+}

@@ -1,0 +1,99 @@
+.deepsea-page {
+  padding: 40px;
+  background: #ffffff;
+}
+
+.deepsea-title {
+  font-size: 26px;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.deepsea-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 500px;
+}
+
+/* CARD COMMON */
+.deepsea-card {
+  position: relative;
+  padding: 30px;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* IMAGE CONTROL */
+.fish-img {
+  position: absolute;
+  pointer-events: none;
+}
+
+.angler-img {
+  right: 230px;
+  bottom: 10px;
+  height: 100%;
+}
+
+.oar-img {
+  right: -20px;
+  top: 30px;
+  height: 95%;
+}
+
+/* HEADINGS */
+.fish-heading {
+  font-size: 48px;
+  font-style: italic;
+  letter-spacing: 4px;
+  opacity: 0.85;
+}
+
+.fish-heading.green {
+  color: #0b6b0b;
+}
+
+/* TEXT */
+.fish-desc {
+  position: absolute;
+  bottom: 40px;
+  max-width: 70%;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.read-more {
+  position: absolute;
+  bottom: 15px;
+  font-size: 11px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* BACKGROUNDS */
+.angler {
+  background: linear-gradient(135deg, #2b0057, #4c1d95);
+}
+
+.oar {
+  background: linear-gradient(135deg, #7b6a3a, #a08c52);
+}
+
+.fish-features {
+  margin-top: 20px;
+  max-width: 60%;
+}
+
+.fish-features h4 {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.fish-features ul {
+  font-size: 12px;
+  padding-left: 16px;
+}
+
+.fish-features li {
+  margin-bottom: 4px;
+}

@@ -1,0 +1,43 @@
+.favourites-page {
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #001f3f, #000814);
+  color: white;
+  text-align: center;
+}
+
+.favourites-title {
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.favourites-subtitle {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 60px;
+}
+
+.favourites-empty {
+  max-width: 500px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px 30px;
+  border-radius: 20px;
+}
+
+.favourites-empty p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.favourites-empty span {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* Optional hover effect */
+.favourites-empty:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transition: 0.3s;
+}
