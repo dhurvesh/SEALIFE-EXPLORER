@@ -1,29 +1,70 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const navRef = useRef(null);
+  const blobRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const moveBlob = () => {
+      const active = navRef.current.querySelector(".active");
+      if (active && blobRef.current) {
+        blobRef.current.style.left = active.offsetLeft + "px";
+        blobRef.current.style.width = active.offsetWidth + "px";
+      }
+    };
+
+    moveBlob();
+    window.addEventListener("resize", moveBlob);
+    return () => window.removeEventListener("resize", moveBlob);
+  }, [location.pathname]);
+
   return (
     <header className="navbar">
-      <Link to="/favourites">
-        <button>Favourites</button>
-      </Link>
+      <NavLink to="/favourites" className="fav-btn">
+        ❤ Favourites
+      </NavLink>
 
       <div className="logo">
         OCEAN<span>EXPLORE</span>
       </div>
 
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/details">Details</Link>
-        <Link to="/store">Store</Link>
-        <Link to="/ngo">Ngo’s</Link>
-        <Link to="/quiz">Quiz</Link>
-        <Link to="/contact">Contact us</Link>
-        <Link to="/about">About Us</Link>
+      <nav className="nav-links">
+        <div className="gooey-wrapper" ref={navRef}>
+          <span className="gooey-blob" ref={blobRef}></span>
+
+          <NavLink to="/" end>Home</NavLink>
+          <NavLink to="/details">Details</NavLink>
+          <NavLink to="/store">Store</NavLink>
+          <NavLink to="/ngo">Ngo’s</NavLink>
+          <NavLink to="/quiz">Quiz</NavLink>
+          <NavLink to="/contact">Contact us</NavLink>
+          <NavLink to="/about">About Us</NavLink>
+          <NavLink to="/LogIn">Log In</NavLink>
+        </div>
       </nav>
+
+      {/* Gooey Filter */}
+      <svg width="0" height="0">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="
+                1 0 0 0 0  
+                0 1 0 0 0  
+                0 0 1 0 0  
+                0 0 0 20 -8"
+            />
+          </filter>
+        </defs>
+      </svg>
     </header>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
