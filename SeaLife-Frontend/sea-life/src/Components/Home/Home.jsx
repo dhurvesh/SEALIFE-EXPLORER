@@ -12,10 +12,19 @@ import DeepSea from "../deepseaCreatures/deepsea.jsx";
 
 import { useNavigate } from "react-router-dom";
 import ApexPredators from "../ApexPredators/ApexPredators.jsx";
-// import CircularImages from "../CircularImages/CircularImages.jsx";  
+import CircularImages from "../CircularImages/CircularImages.jsx";
 
 export default function Home() {
   const navigate = useNavigate();
+
+  const fishGallery = [
+    { name: "whale", image: whale,  color: "#F97316" },
+    { name: "Graywhale", image: Graywhale, color: "#1E4FD7" },
+    { name: "bluewhale", image: bluewhale, color: "#F97316" },
+    { name: "Humpbagwhale", image: Humpbagwhale, color: "#8B5CF6" },
+    { name: "killerwhale", image: killerwhale, color: "#D7261E" },
+  ];
+
 
   const whaleData = [
     {
@@ -73,6 +82,7 @@ export default function Home() {
     }
   ];
 
+
   return (
     <div className="app">
       <section className="hero">
@@ -112,6 +122,8 @@ export default function Home() {
       <DeepSea />
       <ApexPredators />
       {/* <CircularImages /> */}
+      <CircularImages fishes={fishGallery} />
+
     </div>
   );
 }
