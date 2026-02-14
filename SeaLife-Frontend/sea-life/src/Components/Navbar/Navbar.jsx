@@ -9,7 +9,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const moveBlob = () => {
-      const active = navRef.current.querySelector(".active");
+      const active = navRef.current.querySelector("a.active");
       if (active && blobRef.current) {
         blobRef.current.style.left = active.offsetLeft + "px";
         blobRef.current.style.width = active.offsetWidth + "px";
@@ -34,6 +34,11 @@ const Navbar = () => {
       <nav className="nav-links">
         <div className="gooey-wrapper" ref={navRef}>
           <span className="gooey-blob" ref={blobRef}></span>
+
+          {/* 🔍 Search Button */}
+          <button className="search-btn">
+            🔍
+          </button>
 
           <NavLink to="/" end>Home</NavLink>
           <NavLink to="/details">Details</NavLink>

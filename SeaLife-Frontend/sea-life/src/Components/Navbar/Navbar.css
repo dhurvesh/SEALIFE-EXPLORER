@@ -32,7 +32,7 @@
 }
 
 /* ❤️ Favourite button */
-.navbar button {
+.fav-btn {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -42,14 +42,14 @@
   padding: 6px 14px;
   font-size: 13px;
   cursor: pointer;
-  color: #333;
+  color: #fff;
 }
 
-.navbar button::before {
-  content: "♥";
+.fav-btn::before {
   font-size: 14px;
-  color: #444;
+  color: #a855f7;
 }
+
 
 /* LOGO */
 .logo {
@@ -73,12 +73,30 @@
   position: relative;
 }
 
-/* 🔍 Search icon before Home */
+/* 🔍 Search icon before Home
 .navbar nav::before {
   content: "🔍";
   font-size: 14px;
   opacity: 0.6;
+} */
+
+/* Search Button */
+.search-btn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  padding: 6px 10px;
+  opacity: 0.7;
+  transition: 0.3s ease;
 }
+
+.search-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
 
 /* Links */
 .navbar nav a {
@@ -132,6 +150,7 @@
   display: inline-flex;
   align-items: center;
   gap: 28px;
+  right: -123px;
 }
 
 /* Links */
