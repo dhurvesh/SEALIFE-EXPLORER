@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import "./Navbar.css";
+import { useCart } from "../CartContext/CartContext";
+
 
 const Navbar = () => {
   const navRef = useRef(null);
@@ -9,17 +11,24 @@ const Navbar = () => {
 
   useEffect(() => {
     const moveBlob = () => {
-      const active = navRef.current.querySelector("a.active");
-      if (active && blobRef.current) {
-        blobRef.current.style.left = active.offsetLeft + "px";
-        blobRef.current.style.width = active.offsetWidth + "px";
-      }
+      requestAnimationFrame(() => {
+        const active = navRef.current?.querySelector("a.active");
+        if (active && blobRef.current) {
+          blobRef.current.style.left = active.offsetLeft + "px";
+          blobRef.current.style.width = active.offsetWidth + "px";
+        }
+      });
     };
 
     moveBlob();
     window.addEventListener("resize", moveBlob);
+
     return () => window.removeEventListener("resize", moveBlob);
   }, [location.pathname]);
+
+
+  const { cartItems } = useCart();
+
 
   return (
     <header className="navbar">
@@ -27,9 +36,10 @@ const Navbar = () => {
         ❤ Favourites
       </NavLink>
 
-      <div className="logo">
+      <NavLink to="/" className="logo">
         OCEAN<span>EXPLORE</span>
-      </div>
+      </NavLink>
+
 
       <nav className="nav-links">
         <div className="gooey-wrapper" ref={navRef}>
@@ -48,6 +58,9 @@ const Navbar = () => {
           <NavLink to="/contact">Contact us</NavLink>
           <NavLink to="/about">About Us</NavLink>
           <NavLink to="/LogIn">Log In</NavLink>
+          <NavLink to="/cart">🛒({cartItems.length})</NavLink>
+
+
         </div>
       </nav>
 

@@ -4,33 +4,42 @@ import { useEffect, useRef } from "react";
 
 export default function CircularImages({ fishes }) {
   const scrollRef = useRef(null);
-  const loopData = [...fishes, ...fishes,...fishes, ...fishes,...fishes, ...fishes,...fishes, ...fishes,...fishes, ...fishes,...fishes, ...fishes];
+  const animationRef = useRef(null);
+  const isPaused = useRef(false);
+
+  const loopData = [...fishes, ...fishes, ...fishes, ...fishes, ...fishes, ...fishes, ...fishes, ...fishes, ...fishes, ...fishes, ...fishes, ...fishes, ...fishes, ...fishes, ...fishes];
 
   useEffect(() => {
-  const container = scrollRef.current;
-  let animationFrame;
-  const speed = 0.5;
-
-  const autoScroll = () => {
+    const container = scrollRef.current;
     if (!container) return;
 
-    container.scrollLeft += speed;
+    const singleSetWidth = container.scrollWidth / 3;
 
-    const halfWidth = container.scrollWidth / 2;
+    // start from middle
+    container.scrollLeft = singleSetWidth;
 
-    // seamless reset
-    if (container.scrollLeft >= halfWidth) {
-      container.scrollLeft -= halfWidth;
-    }
+    const speed = 0.6;
 
-    animationFrame = requestAnimationFrame(autoScroll);
-  };
+    const autoScroll = () => {
+      if (!isPaused.current) {
+        container.scrollLeft += speed;
 
-  animationFrame = requestAnimationFrame(autoScroll);
+        if (container.scrollLeft >= singleSetWidth * 2) {
+          container.scrollLeft = singleSetWidth;
+        }
 
-  return () => cancelAnimationFrame(animationFrame);
-}, []);
+        if (container.scrollLeft <= 0) {
+          container.scrollLeft = singleSetWidth;
+        }
+      }
 
+      animationRef.current = requestAnimationFrame(autoScroll);
+    };
+
+    animationRef.current = requestAnimationFrame(autoScroll);
+
+    return () => cancelAnimationFrame(animationRef.current);
+  }, []);
 
   return (
     <section className="infinite-gallery" ref={scrollRef}>
@@ -40,6 +49,8 @@ export default function CircularImages({ fishes }) {
             className="fish-card"
             key={`${fish.name}-${index}`}
             style={{ background: fish.color }}
+            onMouseEnter={() => (isPaused.current = true)}
+            onMouseLeave={() => (isPaused.current = false)}
           >
             <div className="fish-image-wrapper">
               <img src={fish.image} alt={fish.name} />

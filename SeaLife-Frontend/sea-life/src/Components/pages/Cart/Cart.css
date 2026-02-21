@@ -1,0 +1,115 @@
+.cart-page {
+  min-height: 100vh;
+  padding-top: 100px;
+  background: linear-gradient(135deg, #001f3f, #003366, #001a33);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cart-container {
+  width: 90%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  padding: 30px;
+  border-radius: 20px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cart-container h2 {
+  margin-bottom: 25px;
+  text-align: center;
+  background: linear-gradient(45deg, #00eaff, #00ffcc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.remove-btn {
+  background: linear-gradient(45deg, #ff4d4d, #ff0000);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.remove-btn:hover {
+  transform: scale(1.05);
+}
+
+.cart-footer {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.checkout-btn {
+  margin-top: 15px;
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(45deg, #00eaff, #00ffcc);
+  color: #00303f;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.4);
+}
+
+.empty {
+  text-align: center;
+  opacity: 0.7;
+}
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.qty-controls button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(45deg, #00eaff, #00ffcc);
+  color: #00303f;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.qty-controls button:hover {
+  transform: scale(1.1);
+}
+
+.qty-controls span {
+  min-width: 20px;
+  text-align: center;
+}
+.cart-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart-left img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+}
