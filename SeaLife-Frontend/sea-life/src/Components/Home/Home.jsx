@@ -7,6 +7,15 @@ import bluewhale from "../../assets/Whale/blueWhale.png";
 import Humpbagwhale from "../../assets/Whale/hump-back.jpg";
 import killerwhale from "../../assets/Whale/killer_whale_height_weight-removebg-preview.png";
 
+import atlanticStingray from "../../assets/stingrays/Atlantic-Stingray.png";
+import yellowStingray from "../../assets/stingrays/Yellow-Stingray.png";
+import xinguRay from "../../assets/stingrays/Xingu-River-Ray.png";
+import blueSpottedRay from "../../assets/stingrays/Blue-spotted-Ray.png";
+import SpinyRay from "../../assets/stingrays/Spiny-Butterfly-Ray.png";
+import BatRay from "../../assets/stingrays/Bat-ray.png";
+import EagleRay from "../../assets/stingrays/Eagle-Ray.png";
+import SouthernSringray from "../../assets/stingrays/Southern-Stingray.png";
+
 import Beautyofsea from "../2ndPage/Beautyofsea.jsx";
 import DeepSea from "../deepseaCreatures/deepsea.jsx";
 
@@ -14,15 +23,21 @@ import { useNavigate } from "react-router-dom";
 import ApexPredators from "../ApexPredators/ApexPredators.jsx";
 import CircularImages from "../CircularImages/CircularImages.jsx";
 
+import OceanSlider from "../Slider/OceanSlider";
+
+
 export default function Home() {
   const navigate = useNavigate();
 
   const fishGallery = [
-    { name: "whale", image: whale,  color: "#F97316" },
-    { name: "Graywhale", image: Graywhale, color: "#1E4FD7" },
-    { name: "bluewhale", image: bluewhale, color: "#F97316" },
-    { name: "Humpbagwhale", image: Humpbagwhale, color: "#8B5CF6" },
-    { name: "killerwhale", image: killerwhale, color: "#D7261E" },
+    { name: "atlanticStingray", image: atlanticStingray,  color: "#F97316" },
+    { name: "yellowStingray", image: yellowStingray, color: "#1E4FD7" },
+    { name: "xinguRay", image: xinguRay, color: "#F97316" },
+    { name: "blueSpottedRay", image: blueSpottedRay, color: "#8B5CF6" },
+    { name: "SpinyRay", image: SpinyRay, color: "#1E4FD7" },
+    { name: "BatRay", image: BatRay, color: "#F97316" },
+    { name: "EagleRay", image: EagleRay, color: "#8B5CF6" },
+    { name: "SouthernSringray", image: SouthernSringray, color: "#1E4FD7" },
   ];
 
 
@@ -123,6 +138,9 @@ export default function Home() {
       <ApexPredators />
       {/* <CircularImages /> */}
       <CircularImages fishes={fishGallery} />
+      <OceanSlider />
+
+      
 
     </div>
   );

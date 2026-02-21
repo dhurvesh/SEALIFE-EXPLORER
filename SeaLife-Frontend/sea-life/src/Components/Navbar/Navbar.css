@@ -12,10 +12,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 14px 40px;
-  border-bottom: 1px solid #eee;
-  position: absolute;
+
+  overflow: hidden;
+
+  /* border-bottom: 1px solid #eee; */
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   height: 70px;
 
@@ -53,6 +57,7 @@
 
 /* LOGO */
 .logo {
+  text-decoration: none;
   font-size: 18px;
   letter-spacing: 2px;
   font-weight: 500;
@@ -71,6 +76,9 @@
   align-items: center;
   gap: 22px;
   position: relative;
+}
+.logo.active::after {
+  display: none;
 }
 
 /* 🔍 Search icon before Home
@@ -150,7 +158,7 @@
   display: inline-flex;
   align-items: center;
   gap: 28px;
-  right: -123px;
+  /* right: -123px; */
 }
 
 /* Links */

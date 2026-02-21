@@ -2,7 +2,7 @@
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  background: #020817;
+  background: #ffffff;
   padding: 100px 0;
   margin-top: 120px;
   scroll-behavior: auto;
@@ -43,7 +43,7 @@
 }
 
 .fish-card img {
-  width: 220px;
+  width: 149px;
   object-fit: contain;
 }
 
