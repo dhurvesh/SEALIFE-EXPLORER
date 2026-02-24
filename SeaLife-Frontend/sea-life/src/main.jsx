@@ -14,11 +14,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import { CartProvider } from "./Components/CartContext/CartContext";
+import { FavouritesProvider } from "./Components/pages/Favourites/FavouritesContext.jsx"; // adjust path if needed
 
 createRoot(document.getElementById("root")).render(
-  // <StrictMode>
+  <StrictMode>
     <CartProvider>
-      <App />
+      <FavouritesProvider>
+        <App />
+      </FavouritesProvider>
     </CartProvider>
-  // </StrictMode>
+  </StrictMode>
 );
