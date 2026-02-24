@@ -25,12 +25,14 @@ import CircularImages from "../CircularImages/CircularImages.jsx";
 
 import OceanSlider from "../Slider/OceanSlider";
 
+import { useFavourites } from "../pages/Favourites/FavouritesContext.jsx";
+
 
 export default function Home() {
   const navigate = useNavigate();
 
   const fishGallery = [
-    { name: "atlanticStingray", image: atlanticStingray,  color: "#F97316" },
+    { name: "atlanticStingray", image: atlanticStingray, color: "#F97316" },
     { name: "yellowStingray", image: yellowStingray, color: "#1E4FD7" },
     { name: "xinguRay", image: xinguRay, color: "#F97316" },
     { name: "blueSpottedRay", image: blueSpottedRay, color: "#8B5CF6" },
@@ -96,7 +98,7 @@ export default function Home() {
       }
     }
   ];
-
+  const { toggleFavourite, isFavourite } = useFavourites();
 
   return (
     <div className="app">
@@ -120,17 +122,45 @@ export default function Home() {
 
       {/* Whale Cards */}
       <section className="cards">
-        {whaleData.map((whale) => (
-          <div
-            key={whale.id}
-            className="card"
-            onClick={() => navigate("/details", { state: whale })}
-          >
-            <img src={whale.image} alt={whale.name} />
-            <h3>{whale.sections.name[0]}</h3>
-            <span>Read More</span>
-          </div>
-        ))}
+        {whaleData.map((whale) => {
+          const fav = isFavourite(whale.id);
+
+          return (
+            <div
+              key={whale.id}
+              className="card"
+              onClick={() => navigate("/details", { state: whale })}
+            >
+              {/* ❤️ Favourite Button */}
+              <button
+                className={`fav-btn-animated ${fav ? "active" : ""}`}
+                onClick={(e) => {
+                  e.stopPropagation(); // 🔥 prevent card click
+                  toggleFavourite({
+                    id: whale.id,
+                    name: whale.sections.name[0],
+                    image: whale.image,
+                  });
+                }}
+              >
+                <svg viewBox="0 0 24 24" className="heart-icon">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+            2 6 4 4 6.5 4 
+            8.04 4 9.54 4.81 10.4 6.09 
+            11.26 4.81 12.76 4 14.3 4 
+            16.8 4 18.8 6 18.8 8.5 
+            18.8 12.28 15.4 15.36 10.25 20.04 
+            L12 21.35z"/>
+                </svg>
+                <span className="burst"></span>
+              </button>
+
+              <img src={whale.image} alt={whale.sections.name[0]} />
+              <h3>{whale.sections.name[0]}</h3>
+              <span>Read More</span>
+            </div>
+          );
+        })}
       </section>
 
       <Beautyofsea />
@@ -140,7 +170,7 @@ export default function Home() {
       <CircularImages fishes={fishGallery} />
       <OceanSlider />
 
-      
+
 
     </div>
   );
