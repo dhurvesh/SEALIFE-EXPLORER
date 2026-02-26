@@ -27,7 +27,8 @@ export default function Beautyofsea() {
             >
               {/* ❤️ Favourite Button */}
               <button
-                className={`fav-btn-animated ${fav ? "active" : ""}`}
+                className={`fav-btn-animated ${fav ? "active" : ""} ${fav ? "pop" : ""
+                  }`}
                 onClick={(e) => {
                   e.stopPropagation();
                   toggleFavourite({
@@ -35,17 +36,23 @@ export default function Beautyofsea() {
                     name: fish.name,
                     image: fish.image,
                   });
+
+                  // force animation restart
+                  e.currentTarget.classList.remove("pop");
+                  void e.currentTarget.offsetWidth;
+                  e.currentTarget.classList.add("pop");
                 }}
               >
                 <svg viewBox="0 0 24 24" className="heart-icon">
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
-                    2 6 4 4 6.5 4 
-                    8.04 4 9.54 4.81 10.4 6.09 
-                    11.26 4.81 12.76 4 14.3 4 
-                    16.8 4 18.8 6 18.8 8.5 
-                    18.8 12.28 15.4 15.36 10.25 20.04 
-                    L12 21.35z"/>
+      2 6 4 4 6.5 4 
+      8.04 4 9.54 4.81 10.4 6.09 
+      11.26 4.81 12.76 4 14.3 4 
+      16.8 4 18.8 6 18.8 8.5 
+      18.8 12.28 15.4 15.36 10.25 20.04 
+      L12 21.35z"/>
                 </svg>
+                <span className="burst"></span>
               </button>
 
               <img src={fish.image} alt={fish.name} />

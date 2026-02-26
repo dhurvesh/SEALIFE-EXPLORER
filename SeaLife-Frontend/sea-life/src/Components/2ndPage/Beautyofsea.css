@@ -25,7 +25,6 @@ body {
 .cards {
   display: flex;
   gap: 28px;
-  position: relative;
 }
 
 .card {
@@ -37,6 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .card img {
@@ -113,4 +113,98 @@ body {
 .nav-btn:hover,
 .social:hover {
   opacity: 0.6;
+}
+
+/* Animated Heart */
+/* Make card relative */
+.card {
+  position: relative;
+}
+
+/* Heart Button */
+.fav-btn-animated {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  z-index: 10;
+}
+
+/* Heart Icon */
+.heart-icon {
+  width: 30px;
+  height: 30px;
+  fill: transparent;
+  stroke: white;
+  stroke-width: 2;
+  transition: all 0.4s ease;
+}
+
+/* ACTIVE STATE ❤️ */
+.fav-btn-animated.active .heart-icon {
+  fill: #ff2e63;
+  stroke: #ff2e63;
+  animation: heartPopSmooth 0.6s cubic-bezier(.17,.67,.83,.67);
+  filter: drop-shadow(0 0 10px #ff2e63);
+}
+
+/* Smooth Pop Animation */
+@keyframes heartPopSmooth {
+  0% {
+    transform: scale(0.5) rotate(-15deg);
+  }
+  50% {
+    transform: scale(1.4) rotate(10deg);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.fav-btn-animated.active .burst {
+  animation: spread 0.6s ease-out forwards;
+}
+
+@keyframes spread {
+  0% {
+    box-shadow:
+      0 -10px 0 #ff2e63,
+      7px -7px 0 #ff2e63,
+      10px 0 0 #ff2e63,
+      7px 7px 0 #ff2e63,
+      0 10px 0 #ff2e63,
+      -7px 7px 0 #ff2e63,
+      -10px 0 0 #ff2e63,
+      -7px -7px 0 #ff2e63;
+    opacity: 1;
+  }
+
+  100% {
+    box-shadow:
+      0 -40px 0 transparent,
+      28px -28px 0 transparent,
+      40px 0 0 transparent,
+      28px 28px 0 transparent,
+      0 40px 0 transparent,
+      -28px 28px 0 transparent,
+      -40px 0 0 transparent,
+      -28px -28px 0 transparent;
+    opacity: 0;
+  }
 }

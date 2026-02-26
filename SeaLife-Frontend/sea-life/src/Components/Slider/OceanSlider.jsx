@@ -6,8 +6,8 @@ import penguin from "../../assets/Slider/penguin.jpg";
 
 const slides = [
   {
-    title: "Discover the Sea",
-    desc: "Explore the wonders of the ocean and its diverse marine life.",
+    title: "Marine Crustaceans of the Ocean",
+    desc: "Crabs are marine crustaceans belonging to the order Decapoda. They have a hard outer shell (exoskeleton), five pairs of legs, and strong claws used for defense and catching food.",
     image: Crab,
     bg: "linear-gradient(to right, #e6b2ab, #ffffff)"
   },
@@ -18,8 +18,8 @@ const slides = [
     bg: "linear-gradient(to right, #c9e7f2, #ffffff)"
   },
   {
-    title: "Ocean Life",
-    desc: "Dive into the deep blue and discover hidden creatures.",
+    title: "The Unique World of Penguins",
+    desc: "Penguins are flightless marine birds belonging to the order Sphenisciformes. They mainly live in the Southern Hemisphere, especially in Antarctica, and are well adapted to cold climates.",
     image: penguin,
     bg: "linear-gradient(to right, #9ed2c6, #ffffff)"
   }
