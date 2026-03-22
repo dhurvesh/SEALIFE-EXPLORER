@@ -2,12 +2,18 @@ import React, { useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import { useCart } from "../CartContext/CartContext";
-
-
+import { toast } from "react-toastify";
 const Navbar = () => {
   const navRef = useRef(null);
   const blobRef = useRef(null);
   const location = useLocation();
+  const token = localStorage.getItem("token");
+
+const logout = () => {
+  localStorage.removeItem("token");
+  toast.info("Logged out 👋");
+  window.location.href = "/login";
+};
 
   useEffect(() => {
     const moveBlob = () => {
@@ -26,9 +32,7 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", moveBlob);
   }, [location.pathname]);
 
-
   const { cartItems } = useCart();
-
 
   return (
     <header className="navbar">
@@ -40,27 +44,31 @@ const Navbar = () => {
         OCEAN<span>EXPLORE</span>
       </NavLink>
 
-
       <nav className="nav-links">
         <div className="gooey-wrapper" ref={navRef}>
           <span className="gooey-blob" ref={blobRef}></span>
 
           {/* 🔍 Search Button */}
-          <button className="search-btn">
-            🔍
-          </button>
+          <button className="search-btn">🔍</button>
 
-          <NavLink to="/" end>Home</NavLink>
+          <NavLink to="/" end>
+            Home
+          </NavLink>
           <NavLink to="/details">Details</NavLink>
           <NavLink to="/store">Store</NavLink>
           <NavLink to="/ngo">Ngo’s</NavLink>
           <NavLink to="/quiz">Quiz</NavLink>
           <NavLink to="/contact">Contact us</NavLink>
           <NavLink to="/about">About Us</NavLink>
-          <NavLink to="/LogIn">Log In</NavLink>
+          {/* <NavLink to="/LogIn">Log In</NavLink> */}
+          {!token ? (
+            <NavLink to="/login">Log In</NavLink>
+          ) : (
+            <button onClick={logout} className="logout-btn">
+              Logout
+            </button>
+          )}
           <NavLink to="/cart">🛒({cartItems.length})</NavLink>
-
-
         </div>
       </nav>
 
