@@ -48,31 +48,35 @@
 
 // export default App;
 
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import OceanLoader from "./Components/Loader/OceanLoader.jsx";
 import { useCart } from "./Components/CartContext/CartContext.jsx";
-
+import ProtectedRoute from "./ProtectedRoute.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Lazy load pages
 const Home = lazy(() => import("./Components/Home/Home.jsx"));
 const Details = lazy(() => import("./Components/pages/details/Details.jsx"));
 const Store = lazy(() => import("./Components/pages/store/Store.jsx"));
 const Quiz = lazy(() => import("./Components/pages/Quiz/Quiz.jsx"));
-const ContactUs = lazy(() => import("./Components/pages/contact-us/ContactUs.jsx"));
+const ContactUs = lazy(
+  () => import("./Components/pages/contact-us/ContactUs.jsx"),
+);
 const AboutUs = lazy(() => import("./Components/pages/aboutus/AboutUs.jsx"));
-const Favourites = lazy(() => import("./Components/pages/Favourites/Favourites.jsx"));
+const Favourites = lazy(
+  () => import("./Components/pages/Favourites/Favourites.jsx"),
+);
 const Ngo = lazy(() => import("./Components/pages/ngo/NgoPage.jsx"));
+// const LogIn = lazy(() => import("./Components/pages/LogIn/LogIn.jsx"));
 const LogIn = lazy(() => import("./Components/pages/LogIn/LogIn.jsx"));
 const SignUp = lazy(() => import("./Components/pages/SignUp/SignUp.jsx"));
 const NotFound = lazy(() => import("./Components/NotFound/NotFound.jsx"));
 const Cart = lazy(() => import("./Components/pages/Cart/Cart.jsx"));
 const Checkout = lazy(() => import("./Components/pages/Checkout/Checkout.jsx"));
-
-
 
 function App() {
   // const { ready } = useCart();
@@ -80,6 +84,7 @@ function App() {
   // if (!ready) return <OceanLoader />;
   return (
     <Router>
+      <ToastContainer position="top-right" autoClose={3000} />
       <div className="app-layout">
         <Navbar />
         <main className="page-wrapper">
@@ -98,7 +103,15 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="*" element={<NotFound />} />
-              <Route path="/checkout" element={<Checkout />} />
+              <Route
+                path="/checkout"
+                element={
+                  <ProtectedRoute>
+                    <Checkout />
+                  </ProtectedRoute>
+                }
+              />
+              {/* <Route path="/checkout" element={<Checkout />} /> */}
             </Routes>
           </Suspense>
         </main>
