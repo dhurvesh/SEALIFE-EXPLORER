@@ -1,54 +1,68 @@
 import { useState } from "react";
 import "./Beautyofsea.css";
+import { useFavourites } from "../../Components/pages/Favourites/FavouritesContext.jsx";
 
 import FishDetails from "./FishDetails.jsx";
-import { fishData } from "./FishData.js"; 
+import { fishData } from "./FishData.js";
 
 export default function Beautyofsea() {
   const [activeFish, setActiveFish] = useState(null);
+  const { toggleFavourite, isFavourite } = useFavourites();
 
   return (
     <div className="page">
 
-      {/* Title */}
       <h2 className="section-title">Beauties of the Sea</h2>
 
-      {/* Cards */}
       <section className="cards">
-        <div
-          className="card red"
-          onClick={() => setActiveFish(fishData.seawrasse)}
-        >
-          <img src={fishData.seawrasse.image} alt={fishData.seawrasse.name} />
-          <p>{fishData.seawrasse.name}</p>
-        </div>
 
-        <div
-          className="card purple"
-          onClick={() => setActiveFish(fishData.bluetang)}
-        >
-          <img src={fishData.bluetang.image} alt={fishData.bluetang.name} />
-          <p>{fishData.bluetang.name}</p>
-        </div>
+        {Object.values(fishData).map((fish) => {
+          const fav = isFavourite(fish.name);
 
-        <div
-          className="card green"
-          onClick={() => setActiveFish(fishData.pipefish)}
-        >
-          <img src={fishData.pipefish.image} alt={fishData.pipefish.name} />
-          <p>{fishData.pipefish.name}</p>
-        </div>
+          return (
+            <div
+              key={fish.name}
+              className="card"
+              onClick={() => setActiveFish(fish)}
+            >
+              {/* ❤️ Favourite Button */}
+              <button
+                className={`fav-btn-animated ${fav ? "active" : ""} ${fav ? "pop" : ""
+                  }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleFavourite({
+                    id: fish.name,
+                    name: fish.name,
+                    image: fish.image,
+                  });
 
-        <div
-          className="card brown"
-          onClick={() => setActiveFish(fishData.lionfish)}
-        >
-          <img src={fishData.lionfish.image} alt={fishData.lionfish.name} />
-          <p>{fishData.lionfish.name}</p>
-        </div>
+                  // force animation restart
+                  e.currentTarget.classList.remove("pop");
+                  void e.currentTarget.offsetWidth;
+                  e.currentTarget.classList.add("pop");
+                }}
+              >
+                <svg viewBox="0 0 24 24" className="heart-icon">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+      2 6 4 4 6.5 4 
+      8.04 4 9.54 4.81 10.4 6.09 
+      11.26 4.81 12.76 4 14.3 4 
+      16.8 4 18.8 6 18.8 8.5 
+      18.8 12.28 15.4 15.36 10.25 20.04 
+      L12 21.35z"/>
+                </svg>
+                <span className="burst"></span>
+              </button>
+
+              <img src={fish.image} alt={fish.name} />
+              <p>{fish.name}</p>
+            </div>
+          );
+        })}
+
       </section>
 
-      {/* Fish Details Modal */}
       {activeFish && (
         <FishDetails
           fish={activeFish}
