@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import { useCart } from "../CartContext/CartContext";
 import { toast } from "react-toastify";
+
 const Navbar = () => {
   const navRef = useRef(null);
   const blobRef = useRef(null);
