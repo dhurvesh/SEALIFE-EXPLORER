@@ -111,7 +111,6 @@ export default function ContactUs() {
         </form>
       </div>
 
-      {/* GOOGLE MAP */}
       <div
         className="map-section"
         onClick={() =>
