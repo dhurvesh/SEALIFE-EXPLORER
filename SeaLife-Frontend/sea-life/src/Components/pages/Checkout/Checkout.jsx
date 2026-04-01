@@ -48,6 +48,7 @@ import { useCart } from "../../CartContext/CartContext";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import "./Checkout.css";
+import { toast } from "react-toastify";
 
 export default function Checkout() {
   const { cartItems, clearCart } = useCart();
@@ -91,21 +92,34 @@ export default function Checkout() {
 
     setTimeout(() => {
       setLoading(false);
+
+      toast.success("Payment successful 🎉");
+
       setSuccess(true);
       clearCart();
     }, 2000);
   };
 
-  if (success) {
-    return (
-      <div className="success-page">
-        <div className="success-card">
-          <h2>Payment Successful 🎉</h2>
-          <p>Thank you for your purchase!</p>
-        </div>
-      </div>
-    );
-  }
+  // if (success) {
+  //   return (
+  //     <div className="success-page">
+  //       <div className="success-card">
+  //         <h2>Payment Successful 🎉</h2>
+  //         <p>Thank you for your purchase!</p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
+{success && (
+  <div className="success-popup">
+    <div className="success-card">
+      <h2>Payment Successful 🎉</h2>
+      <p>Thank you for your purchase!</p>
+    </div>
+  </div>
+)}
+
 
   return (
     <div className="checkout-page">
@@ -144,6 +158,7 @@ export default function Checkout() {
           <button className="pay-btn" onClick={handlePayment}>
             {loading ? "Processing..." : `Pay ₹${total}`}
           </button>
+          
         </div>
         <div className="order-summary">
           <h2>Order Summary</h2>
@@ -162,5 +177,7 @@ export default function Checkout() {
         </div>
       </div>
     </div>
+
   );
+  
 }

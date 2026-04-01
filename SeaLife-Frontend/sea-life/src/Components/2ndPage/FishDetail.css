@@ -8,14 +8,16 @@
   justify-content: center;
 }
 
-.fish-card {
-  width: 90%;
-  height: 90%;
-  border-radius: 40px 0 0 40px;
-  padding: 40px 60px;
-  overflow-y: auto;
-  color: #fff;
-  position: relative;
+.fish-cards {
+      display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 550px;
+    border-radius: 40px 0 0 40px;
+    padding: 40px 60px;
+    overflow-y: auto;
+    color: #fff;
+    position: relative;
 }
 
 /* Close */

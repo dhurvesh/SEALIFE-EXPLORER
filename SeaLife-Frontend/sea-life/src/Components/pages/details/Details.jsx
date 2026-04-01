@@ -4,10 +4,20 @@ import "./Details.css";
 import TurtlesAndTortoise from "../../Detailspages/TurtlesAndTortoise";
 import MarineCards from "../../Detailspages/MarineCards";
 
+import { useParams } from "react-router-dom";
+import { animalDetails } from "../../Slider/Data.js";
+
 export default function Details() {
-  const location = useLocation();
-  const whale = location.state; // may be undefined
+const { id } = useParams();
+const location = useLocation();  
+ const whale =
+    location.state ||
+    animalDetails.find(item => item.id === Number(id));
+
+  // const whale = location.state; // may be undefined
   const heroRef = useRef(null);
+
+  
 
   // Scroll ONLY when whale exists
   useEffect(() => {

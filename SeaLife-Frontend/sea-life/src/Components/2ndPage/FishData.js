@@ -49,6 +49,13 @@ export const fishData = {
           "Popularized by animated movies.",
           "Very fast and agile swimmer."
         ]
+      },
+      {
+        title: "Habitat",
+        points: [
+          "Found in the warm waters of the Indo-Pacific",
+          "Common near coral reefs (like Australia’s Great Barrier Reef)"
+        ]
       }
     ]
   },

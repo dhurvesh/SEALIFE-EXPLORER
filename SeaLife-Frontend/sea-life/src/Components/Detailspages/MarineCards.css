@@ -90,3 +90,29 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* FLEX LAYOUT */
+.popup-content {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.popup-left img {
+  width: 220px;
+  object-fit: contain;
+}
+
+.popup-right {
+  text-align: left;
+}
+
+.popup-box {
+  width: 700px;
+}
+
+/* LIST FIX */
+.popup-right ul {
+  text-align: left;
+  padding-left: 20px;
+}

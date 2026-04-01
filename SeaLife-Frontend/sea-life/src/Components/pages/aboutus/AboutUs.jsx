@@ -42,8 +42,11 @@
 
 
 import "./AboutUs.css";
+import { useNavigate } from "react-router-dom";
+
 
 export default function About() {
+   const navigate = useNavigate();
   return (
     <div className="about-page">
 
@@ -148,7 +151,10 @@ export default function About() {
       {/* CTA */}
       <section className="about-cta">
         <h2>Join Us in Protecting the Oceans 🌊</h2>
-        <button>Explore Marine Life</button>
+        {/* <button>Explore Marine Life</button> */}
+        <button onClick={() => navigate("/")}>
+      Explore Marine Life
+    </button>
       </section>
 
     </div>

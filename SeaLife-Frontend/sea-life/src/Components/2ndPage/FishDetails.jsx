@@ -6,7 +6,7 @@ export default function FishDetails({ fish, onClose }) {
   return (
     <div className="fish-overlay">
       <div
-        className="fish-card"
+          className="fish-cards"
         style={{ background: fish.bgColor }}
       >
         <div className="close-btn" onClick={onClose}>
